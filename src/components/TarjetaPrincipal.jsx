@@ -70,6 +70,32 @@ const TarjetaPrincipal = () => {
       .join(".");
 
     answerInput.value = octect;
+
+    defineRedClass(octect);
+  };
+  //-----------------------------------------------------------------------
+  const defineRedClass = (ipDirection) => {
+    let inputRedClass = document.getElementById("redClassInput");
+    let byte1 = parseInt(ipDirection.slice(0, 3), 10);
+    let byte2 = parseInt(ipDirection.slice(4, 7), 10);
+    let byte3 = parseInt(ipDirection.slice(8, 11), 10);
+    let byte4 = parseInt(ipDirection.slice(12, 15), 10);
+
+    let redClass = "";
+
+    if (byte1 <= 127) {
+      redClass = "Clase A";
+    } else if (byte2 > 127 && byte2 <= 191) {
+      redClass = "Clase B";
+    } else if (byte3 > 191 && byte2 <= 223) {
+      redClass = "Clase C";
+    } else if (byte4 > 223 && byte2 <= 239) {
+      redClass = "Clase D";
+    } else {
+      redClass = "Clase E";
+    }
+
+    inputRedClass.value = redClass;
   };
   //------------------------------------------------------------
   return (
@@ -125,11 +151,11 @@ const TarjetaPrincipal = () => {
       <label className="answerLabel">Resultado</label>
       <input type="text" className="answerInput" id="answerInput" disabled />
 
-      <label className="subRedMaskLabel">Máscara de subred</label>
+      <label className="redClassLabel">Clase de la red</label>
       <input
         type="text"
-        className="subRedMaskInput"
-        id="subRedMaskInput"
+        className="redClassInput"
+        id="redClassInput"
         disabled
       />
 

@@ -97,13 +97,13 @@ body{
     font-size: 20px;
 }
 
-.subRedMaskLabel{
+.redClassLabel{
     margin-top: 25px;
     text-align: center;
     font-size: 20px;
 }
 
-.subRedMaskInput{
+.redClassInput{
     align-self: center;
     margin-top: 15px;
     border: none;
@@ -112,6 +112,7 @@ body{
     width: 250px;
     height: 30px;
     text-align: center;
+    font-size: 20px;
 }
 
 .redTypeLabel{
@@ -129,6 +130,7 @@ body{
     width: 250px;
     height: 30px;
     text-align: center;
+    font-size: 20px;
 }
 
 .btnConvert{
