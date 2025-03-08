@@ -73,7 +73,7 @@ const TarjetaPrincipal = () => {
 
     defineRedClass(octect);
   };
-  //-----------------------------------------------------------------------
+  //-----------------------Define red class------------------------------------------------
   const defineRedClass = (ipDirection) => {
     let inputRedClass = document.getElementById("redClassInput");
     let byte1 = parseInt(ipDirection.slice(0, 3), 10);
@@ -96,6 +96,25 @@ const TarjetaPrincipal = () => {
     }
 
     inputRedClass.value = redClass;
+
+    defineRedType(byte1, byte2, byte3, byte4);
+  };
+  //-----------------------Define red type------------------------------------------------
+  const defineRedType = (byte1, byte2) => {
+    let redTypeInput = document.getElementById("redTypeInput");
+    let redType = "";
+
+    if (byte1 == 10) {
+      redType = "Privada";
+    } else if (byte1 == 172 && byte2 >= 16 && byte2 <= 31) {
+      redType = "Privada";
+    } else if (byte1 == 192 && byte2 == 168) {
+      redType = "Privada";
+    } else {
+      redType = "Publica";
+    }
+
+    redTypeInput.value = redType;
   };
   //------------------------------------------------------------
   return (
