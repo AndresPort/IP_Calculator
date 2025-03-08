@@ -50,11 +50,23 @@ const TarjetaPrincipal = () => {
     if (byte1 > 255 || byte2 > 255 || byte3 > 255 || byte4 > 255) {
       alert("el valor máximo por cada campo es 255");
     } else {
-      fromIpToBinary(byte1, byte2, byte3, byte4);
+      fromIpToBinary(byte1, byte2, byte3, byte4, dataInputIp);
     }
   };
   //-----------------------Cambiar de dirección Ip a binario-------------------------------------
-  const fromIpToBinary = (byte1, byte2, byte3, byte4) => {};
+  const fromIpToBinary = (byte1, byte2, byte3, byte4, dataInputIp) => {
+    let answerInput = document.getElementById("answerInput");
+    let binario = [
+      byte1.toString(2).padStart(8, "0"),
+      byte2.toString(2).padStart(8, "0"),
+      byte3.toString(2).padStart(8, "0"),
+      byte4.toString(2).padStart(8, "0"),
+    ];
+
+    answerInput.value = binario.join(".");
+
+    defineRedClass(dataInputIp);
+  };
 
   //-----------------------Cambiar de binario a dirección Ip--------------------------
   const fromBinaryToIp = () => {
