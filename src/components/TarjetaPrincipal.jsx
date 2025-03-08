@@ -59,6 +59,7 @@ const TarjetaPrincipal = () => {
   //-----------------------Cambiar de binario a dirección Ip--------------------------
   const fromBinaryToIp = () => {
     let dataInputBinary = document.getElementById("dataInputBinary").value;
+    let answerInput = document.getElementById("answerInput");
     let byte1 = dataInputBinary.slice(0, 8);
     let byte2 = dataInputBinary.slice(9, 17);
     let byte3 = dataInputBinary.slice(18, 26);
@@ -68,6 +69,7 @@ const TarjetaPrincipal = () => {
       .map((bin) => parseInt(bin, 2))
       .join(".");
 
+    answerInput.value = octect;
   };
   //------------------------------------------------------------
   return (
@@ -123,27 +125,21 @@ const TarjetaPrincipal = () => {
       <label className="answerLabel">Resultado</label>
       <input type="text" className="answerInput" id="answerInput" disabled />
 
-      {mostrarCampos && (
-        <>
-          <label className="subRedMaskLabel">Máscara de subred</label>
-          <input
-            type="text"
-            className="subRedMaskInput"
-            id="subRedMaskInput"
-            disabled
-          />
+      <label className="subRedMaskLabel">Máscara de subred</label>
+      <input
+        type="text"
+        className="subRedMaskInput"
+        id="subRedMaskInput"
+        disabled
+      />
 
-          <label className="redTypeLabel">Tipo de red</label>
-          <input
-            type="text"
-            className="redTypeInput"
-            id="redTypeInput"
-            disabled
-          />
-          <button className="btnConvert" onClick={() => ipValidation()}>
-            Convertir
-          </button>
-        </>
+      <label className="redTypeLabel">Tipo de red</label>
+      <input type="text" className="redTypeInput" id="redTypeInput" disabled />
+
+      {mostrarCampos && (
+        <button className="btnConvert" onClick={() => ipValidation()}>
+          Convertir
+        </button>
       )}
 
       {!mostrarCampos && (
