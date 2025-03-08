@@ -10,7 +10,7 @@ body{
     align-items: center;   
 }
 
-@media (max-width: 940px){
+@media (max-width: 1250px){
     
 .principalFrame{
     display: flex;
@@ -153,7 +153,7 @@ body{
 }
 
 
-@media (min-width: 950px){
+@media (min-width: 1300px){
     .principalFrame{
         display: flex;
         flex-direction: column;
