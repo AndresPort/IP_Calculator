@@ -68,14 +68,14 @@ body{
     border: none;
     border-bottom: 1px solid rgb(0, 0, 0);
     background-color: rgb(245,245,245);
-    width: 250px;
+    width: 320px;
     height: 30px;
-    font-size: 18px;
+    font-size: 14px;
     text-align: center;
 }
 
 .dataInput::placeholder{
-    color: rgb(20,20, 20);
+    color: rgb(100,100, 100);
     opacity: 1;
 }
 
